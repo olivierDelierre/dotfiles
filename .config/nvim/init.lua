@@ -1,2 +1,2 @@
-require "user.options"
-require "user.keymaps"
+require "olivier.options"
+require "olivier.keymaps"
