@@ -1,0 +1,18 @@
+"" --- Mapping
+" Mapping <Space> as leader key.
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+map <leader>d <Action>(Debug)
+map <leader>b <Action>(ToggleLineBreakpoint)
+
+"" --- Enable IdeaVim plugins -- https://jb.gg/ideavim-plugins
+Plug 'machakann/vim-highlightedyank'    " Highlight copied text
+Plug 'tpope/vim-commentary'             " Commentary plugin
+
+"" --- Settings
+set rnu " Relative numbering
+set ic " Ignoring case while searching
+set incsearch
+set scrolloff=5
