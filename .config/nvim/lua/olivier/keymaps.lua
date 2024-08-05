@@ -9,6 +9,8 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+keymap("i", "jk", "<Esc>", opts)
+
 -- NORMAL Mode --
 -- Window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
