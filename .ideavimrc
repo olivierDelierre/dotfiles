@@ -3,9 +3,23 @@
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
+" Back to NORMAL mode with `jk`
+inoremap jk <Esc>
+
+" New line without switching to insert mode.
+nnoremap <leader>o o<Esc>
+
+" Window management
+nnoremap <C-j> <C-w>j
+nnoremap <C-h> <C-w>h
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 map <leader>d <Action>(Debug)
 map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>t <Action>(Vcs.UpdateProject)
+map <leader>q <Action>(CloseAllEditors)
 
 "" --- Enable IdeaVim plugins -- https://jb.gg/ideavim-plugins
 Plug 'machakann/vim-highlightedyank'    " Highlight copied text
