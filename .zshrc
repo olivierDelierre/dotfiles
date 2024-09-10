@@ -23,7 +23,6 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
-# fzf-tab might not work if company configured a profile override tab.
 if $SHOULD_USE_FZF; then
   zinit light Aloxaf/fzf-tab
 fi
