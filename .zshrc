@@ -1,3 +1,12 @@
+# Exposing this flag since my company profile overwrite
+# tab usage.
+SHOULD_USE_FZF=true;
+
+[ -f ~/.company.zsh ] && source ~/.company.zsh
+
+# Path
+export PATH=/opt/flutter/bin:~/bin:~/.local/bin:$PATH
+
 # Saving Zinit HOME path
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -13,7 +22,11 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
+
+# fzf-tab might not work if company configured a profile override tab.
+if $SHOULD_USE_FZF; then
+  zinit light Aloxaf/fzf-tab
+fi
 
 # Load completions
 autoload -U compinit && compinit
@@ -21,8 +34,10 @@ autoload -U compinit && compinit
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/zen.toml)"
 
 # Aliases
+alias n=nvim
 alias vim=nvim
 alias ls='ls --color'
+alias cd=z
 
 # Key mapping
 bindkey '^f' autosuggest-accept
@@ -43,12 +58,15 @@ setopt hist_find_no_dups
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+zstyle ':completion:*' menu select
 
-# Shell integrations
-eval "$(fzf --zsh)"
+if $SHOULD_USE_FZF; then
+  echo "TEST"
+  zstyle ':completion:*' menu no
+  zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+  zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# Path
-export PATH=/opt/flutter/bin:$PATH
+  eval "$(fzf --zsh)"
+fi
+
+eval "$(zoxide init zsh)"
