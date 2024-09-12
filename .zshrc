@@ -37,6 +37,8 @@ eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/zen.toml)"
 alias n=nvim
 alias vim=nvim
 alias ls='ls --color'
+alias ll='ls -l --color'
+alias la='ls -la --color'
 alias cd=z
 
 # Key mapping
