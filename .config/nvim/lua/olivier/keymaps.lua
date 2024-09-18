@@ -9,6 +9,10 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Plugins -- 
+-- fzf.vim
+keymap("n", "<leader>f", ":Files<CR>", opts)
+keymap("n", "<leader>g", ":Rg<CR>", opts)
 
 -- NORMAL Mode --
 -- Window navigation
