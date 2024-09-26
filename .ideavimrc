@@ -20,7 +20,8 @@ map <leader>d <Action>(Debug)
 map <leader>r <Action>(RunClass)
 map <leader>b <Action>(ToggleLineBreakpoint)
 map <leader>t <Action>(Vcs.UpdateProject)
-map <leader>q <Action>(CloseAllEditors)
+map <leader>q <Action>(CloseAllEditorsButActive)
+map <leader>Q <Action>(CloseAllEditors)
 
 "" --- Enable IdeaVim plugins -- https://jb.gg/ideavim-plugins
 Plug 'machakann/vim-highlightedyank'    " Highlight copied text

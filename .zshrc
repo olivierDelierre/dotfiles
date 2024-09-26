@@ -38,7 +38,6 @@ alias vim=nvim
 alias ls='ls --color'
 alias ll='ls -l --color'
 alias la='ls -la --color'
-alias cd=z
 
 # Key mapping
 bindkey '^f' autosuggest-accept
