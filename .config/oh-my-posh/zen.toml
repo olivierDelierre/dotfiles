@@ -1,55 +1,50 @@
-#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-
-version = 2
-final_space = true
 console_title_template = '{{ .Shell }} in {{ .Folder }}'
+version = 3
+final_space = true
 
-# Path block
+[secondary_prompt]
+  template = '❯❯ '
+  foreground = 'magenta'
+
+[transient_prompt]
+  template = '❯ '
+  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
+
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
   newline = true
 
   [[blocks.segments]]
+    template = '{{ .Path }}'
+    foreground = 'blue'
     type = 'path'
     style = 'plain'
-    foreground = 'blue'
-    template = '{{ .Path }}'
-
-      [blocks.segments.properties]
-        style = 'full'
-
-  [[blocks.segments]]
-    type = 'git'
-    style = 'plain'
-    foreground = '#6c6c6c'
-    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}'
 
     [blocks.segments.properties]
+      cache_duration = 'none'
+      style = 'full'
+
+  [[blocks.segments]]
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}'
+    foreground = '#6c6c6c'
+    type = 'git'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
       fetch_status = true
 
-# Prompt block
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
   newline = true
 
   [[blocks.segments]]
+    template = '❯'
     type = 'text'
     style = 'plain'
-    foreground_templates = [
-      '{{if gt .Code 0}}red{{end}}',
-      '{{if eq .Code 0}}magenta{{end}}',
-    ]
-    template = '❯'
+    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
 
-  [transient_prompt]
-    foreground_templates = [
-      '{{if gt .Code 0}}red{{end}}',
-      '{{if eq .Code 0}}magenta{{end}}',
-    ]
-    template = '❯ '
-
-  [secondary_prompt]
-    foreground = 'magenta'
-    template = '❯❯ '
+    [blocks.segments.properties]
+      cache_duration = 'none'
