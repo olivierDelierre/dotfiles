@@ -11,8 +11,8 @@ vim.g.maplocalleader = " "
 
 -- Plugins -- 
 -- fzf.vim
-keymap("n", "<leader>f", ":Files<CR>", opts)
-keymap("n", "<leader>g", ":Rg<CR>", opts)
+keymap("n", "<leader>f", ":FzfLua files<CR>", opts)
+keymap("n", "<leader>g", ":FzfLua live-grep<CR>", opts)
 
 -- NORMAL Mode --
 -- Window navigation
