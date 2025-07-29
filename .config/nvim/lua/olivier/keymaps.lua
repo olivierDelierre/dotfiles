@@ -12,7 +12,7 @@ vim.g.maplocalleader = " "
 -- Plugins -- 
 -- fzf.vim
 keymap("n", "<leader>f", ":FzfLua files<CR>", opts)
-keymap("n", "<leader>g", ":FzfLua live-grep<CR>", opts)
+keymap("n", "<leader>g", ":FzfLua live_grep<CR>", opts)
 
 -- NORMAL Mode --
 -- Window navigation
