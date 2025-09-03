@@ -23,10 +23,10 @@ final_space = true
 
     [blocks.segments.properties]
       cache_duration = 'none'
-      style = 'full'
+      style = 'folder'
 
   [[blocks.segments]]
-    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}'
+    template = ' <#ffffff>at</> {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}'
     foreground = '#6c6c6c'
     type = 'git'
     style = 'plain'
@@ -35,10 +35,17 @@ final_space = true
       cache_duration = 'none'
       fetch_status = true
 
+
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
   newline = true
+
+  [[blocks.segments]]
+    template = '{{ .Env.COMPANY_VAR }} '
+    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
+    type = 'path'
+    style = 'plain'
 
   [[blocks.segments]]
     template = '❯'
