@@ -3,6 +3,7 @@
 SHOULD_USE_FZF=true;
 
 [ -f ~/.company.zsh ] && source ~/.company.zsh
+[ -f ~/.secret.zsh ] && source ~/.secret.zsh
 
 # Path
 export PATH=/opt/flutter/bin:~/bin:~/.local/bin:$PATH
