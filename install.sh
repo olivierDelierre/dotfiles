@@ -106,8 +106,12 @@ install_fzf() {
 
     case "${choice}" in
       ""|y|Y|yes|YES|Yes)
-        run git clone --depth 1 https://github.com/junegunn/fzf.git "${HOME_DIR}/.fzf"
-        run "${HOME_DIR}/.fzf/install"
+        if [[ ! -d "${HOME_DIR}/.fzf/.git" ]]; then
+          run git clone --depth 1 https://github.com/junegunn/fzf.git "${HOME_DIR}/.fzf"
+        fi
+
+        run "${HOME_DIR}/.fzf/install" --bin
+        link_path "${HOME_DIR}/.fzf/bin/fzf" "${HOME_DIR}/.local/bin/fzf"
         return
         ;;
       n|N|no|NO|No)
