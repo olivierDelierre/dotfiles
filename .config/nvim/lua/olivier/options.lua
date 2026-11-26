@@ -56,10 +56,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank { higroup = 'IncSearch', timeout = 500 }
   end,
 })
-
--- FZF options
-require("fzf-lua").setup{
-	files = {
-		formatter = "path.filename_first"
-	}
-}

@@ -44,10 +44,17 @@ return packer.startup(function(use)
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
-	use {
-		"ibhagwan/fzf-lua",
-		requires = { "nvim-tree/nvim-web-devicons" }
-	}
+  use {
+    "ibhagwan/fzf-lua",
+    requires = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("fzf-lua").setup {
+        files = {
+          formatter = "path.filename_first",
+        },
+      }
+    end,
+  }
 
   -- Color schemes
   use "lunarvim/colorschemes"
